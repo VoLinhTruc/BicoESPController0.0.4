@@ -1,0 +1,2 @@
+
+cleanAndWaitingSerial	KEYWORD2

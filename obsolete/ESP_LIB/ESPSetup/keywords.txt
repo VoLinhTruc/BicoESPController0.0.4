@@ -1,0 +1,12 @@
+ESPSetup	KEYWORD1
+
+doAfterTurnOnESP	KEYWORD2
+goSetup	KEYWORD2
+
+turnOnSoftAP	KEYWORD2
+turnOffSoftAP	KEYWORD2
+turnOnStation	KEYWORD2
+turnOffStation	KEYWORD2
+
+connectPreviousRouter KEYWORD2
+cleanAndWaitingSerial	KEYWORD2

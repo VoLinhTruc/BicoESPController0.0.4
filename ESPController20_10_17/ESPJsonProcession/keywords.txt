@@ -1,0 +1,6 @@
+ESPJsonProcession	KEYWORD1
+digitalInputToJson	KEYWORD2
+analogInputToJson	KEYWORD2
+commandToJson	KEYWORD2
+allToJson	KEYWORD2
+handleJson	KEYWORD2
