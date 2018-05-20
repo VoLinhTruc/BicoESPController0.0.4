@@ -25,7 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(file_exists("saveESP8266.dat"))
+            <string>GoogleMobileAds_Init("ca-app-pub-7816715445131288/8582538199");
+
+GoogleMobileAds_AddBannerAt("ca-app-pub-7816715445131288/5790434534", GoogleMobileAds_Banner,0,0);
+GoogleMobileAds_LoadInterstitial();
+
+if(file_exists("saveESP8266.dat"))
     game_load("saveESP8266.dat");
 
 //Cyan1

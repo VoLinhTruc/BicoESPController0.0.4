@@ -6,6 +6,8 @@
   <NewExtensions>
     <extension index="0">extensions\obj</extension>
     <extension index="1">extensions\font</extension>
+    <extension index="2">extensions\GooglePlayServicesIAPExtension</extension>
+    <extension index="3">extensions\GooglePlayServicesExtension</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
