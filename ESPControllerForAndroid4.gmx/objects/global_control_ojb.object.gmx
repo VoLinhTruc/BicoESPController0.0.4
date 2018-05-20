@@ -29,6 +29,7 @@
 
 GoogleMobileAds_AddBannerAt("ca-app-pub-7816715445131288/5790434534", GoogleMobileAds_Banner,0,0);
 GoogleMobileAds_LoadInterstitial();
+alarm[10] = 6000;
 
 if(file_exists("saveESP8266.dat"))
     game_load("saveESP8266.dat");
@@ -124,6 +125,30 @@ instance_create(x, switch_selection_position_y, switch_selection_obj)
 
 instance_create(read_digital_selection_obj_x, button_selection_position_y, read_digital_selection_obj)
 instance_create(read_analog_selection_obj_x, button_selection_position_y, read_analog_selection_obj)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>GoogleMobileAds_LoadInterstitial();
+alarm[10] = 6000;
 </string>
           </argument>
         </arguments>
