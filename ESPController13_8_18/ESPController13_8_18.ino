@@ -26,6 +26,7 @@ void setup() {
   }
   
   Serial.begin(9600);
+  Serial.setTimeout(100);
   delay(1);
 
   doAfterTurnOnESP(5000);

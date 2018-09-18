@@ -27,14 +27,14 @@
             <kind>1</kind>
             <string>image_speed = 0
 movable = 0
-image_index = 0
 color_index = round(random(11));
 image_blend = make_color_rgb(global.color[color_index, 0], global.color[color_index, 1], global.color[color_index, 2])
 
 name = get_string("Name: ", "Switch");
 pin = get_integer("Pin", 16);   
 
-value = 0//get_integer("Trạng thái ban đầu là: ", 0)
+value = 0;//get_integer("Trạng thái ban đầu là: ", 0)
+image_index = value
 feedback_value = 0
 host = get_string("Host: ", "192.168.1.")
 received_host = ""

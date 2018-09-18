@@ -39,6 +39,7 @@ uint8_t getAddressByte(uint8_t which_byte);
 #define ENABLE_AP_PARAMETER_EEPROM_POSITION (NUM_OF_NETWORK_PARAMETER * NUM_OF_PART_IN_EACH_NETWORK_PARAMETER)
 #define ENABLE_STATION_PARAMETER_EEPROM_POSITION (ENABLE_AP_PARAMETER_EEPROM_POSITION + ONE_BYTE)
 #define AP_HIDDEN_PARAMETER_EEPROM_POSITION (ENABLE_STATION_PARAMETER_EEPROM_POSITION + ONE_BYTE)
+#define ENABLE_STATIC_IP (AP_HIDDEN_PARAMETER_EEPROM_POSITION + ONE_BYTE)
 #define SOFTAP_SSID_EEPROM_POSITION 50 //=50+32*0 = 50+MAX_SSID_PASS_LENGTH*0 //don't use "#define SOFTAP_SSID_EEPROM_POSITION 50+MAX_SSID_PASS_LENGTH*0" to make CPU faster 
 #define SOFTAP_PASS_EEPROM_POSITION (SOFTAP_SSID_EEPROM_POSITION + MAX_SSID_PASS_LENGTH) //=50+32*1 = 50+MAX_SSID_PASS_LENGTH*1
 #define WIFI_SSID_EEPROM_POSITION (SOFTAP_PASS_EEPROM_POSITION + MAX_SSID_PASS_LENGTH) //=50+32*2 = 50+MAX_SSID_PASS_LENGTH*2
@@ -162,6 +163,7 @@ void goSetup()
 			Serial.println("2. AP configurations");
 			Serial.println("3. Station configurations");
 			Serial.println("4. Allow to turn wifi on");
+			Serial.println("5. Enable Static IP");
 			Serial.println("0. Exist");
 
 			cleanAndWaitingSerial();
@@ -419,6 +421,27 @@ void goSetup()
 					break;
 				}
 
+			 	case 5:
+			 	{
+				 	//Allow to turn Wifi on or not------------------------------------------
+				 	{
+						Serial.print("Enable Static IP: (1:Y; 0:N)");
+						Serial.print("(Pre parameter: ");
+						Serial.print(EEPROM.read(ENABLE_STATIC_IP));
+						Serial.println(")");
+
+						cleanAndWaitingSerial();
+						uint8_t temp_val = Serial.read();
+						if(temp_val != '`')
+						{
+							EEPROM.write(ENABLE_STATIC_IP, temp_val);
+							EEPROM.commit();
+							Serial.println(temp_val);
+							Serial.println();
+						}
+					}
+					break;
+				}
 				default: break;
 			}
 		}
@@ -433,6 +456,7 @@ void goSetup()
 		}	
 		Serial.println();
 	}
+	delay(100);
 	EEPROM.end();
 }
 
@@ -470,8 +494,8 @@ void turnOnStation()
 {
 	Serial.print("Conf STA:");
 	Serial.println(WiFi.config(network_parameter[STATION_LOCAL_ADDRESS], network_parameter[STATION_GATEWAY], network_parameter[SUBNET])? "OK":"Failed");
-	WiFi.disconnect(true);
-	delay(1000);
+	// WiFi.disconnect(true);
+	// delay(1000);
 	Serial.println("Connect to " + String(ESP_ssid));
 	WiFi.begin(ESP_ssid, ESP_password);
 	long connecting_time = millis();
