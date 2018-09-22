@@ -1,10 +1,10 @@
+#include <ESP8266WiFi.h>
 #include "ESPSetup/ESPSetup.h"
 #include "ESPJsonProcession/ESPJsonProcession.h"
 
 WiFiServer esp_server(80);
 
-const uint8_t D[] = {16, 4, 5, 14, 13, 12, 15, 10};
-
+const uint8_t D[] = {16, 5, 4, 14, 12, 13}; // cac pin nay da duoc test hoat dong on dinh, cac chan I/O con lai khong nen dung
 
 String http_header = 
             String("HTTP/1.1 200 OK\r\n") +

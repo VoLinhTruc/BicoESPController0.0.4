@@ -48,7 +48,7 @@ uint8_t getAddressByte(uint8_t which_byte);
 #define ON 1
 #define OFF 0
 
-//#include <Arduino.h> //co hay khong thi cung khong anh huong toi chuong trinh
+#include <Arduino.h> //co hay khong thi cung khong anh huong toi chuong trinh
 #include <ESP8266WiFi.h>
 #include <EEPROM.h>
 

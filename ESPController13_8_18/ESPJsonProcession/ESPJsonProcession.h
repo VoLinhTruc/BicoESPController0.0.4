@@ -33,15 +33,15 @@ String handleJson(String Json){
 	uint8_t temp_analog_pin = after_parse["analog_pin"];
 	uint16_t temp_analog_value = after_parse["analog_value"];
 	
-	if(!((temp_digital_pin == 0) || (temp_digital_pin == 2) || (temp_digital_pin == 5) || ((temp_digital_pin >= 6) && (temp_digital_pin <= 11))))
+	if(!((temp_digital_pin == 0) || (temp_digital_pin == 2) || (temp_digital_pin == 15) || (temp_digital_pin == 3) || (temp_digital_pin == 1) || (temp_digital_pin == 9) || (temp_digital_pin == 10)))
 		if(Json.indexOf("digital_pin") != -1)
 			digitalWrite(temp_digital_pin, temp_digital_value = (temp_digital_value>0)? 1:0);
 
-	if(!((temp_analog_pin == 0) || (temp_analog_pin == 2) || (temp_analog_pin == 5) || ((temp_analog_pin >= 6) && (temp_analog_pin <= 11))))
+	if(!((temp_digital_pin == 0) || (temp_digital_pin == 2) || (temp_digital_pin == 15) || (temp_digital_pin == 3) || (temp_digital_pin == 1) || (temp_digital_pin == 9) || (temp_digital_pin == 10)))
 		if(Json.indexOf("analog_pin") != -1)
 			analogWrite(temp_analog_pin, temp_analog_value);
 
-	if(!((temp_digital_pin == 0) || (temp_digital_pin == 2) || (temp_digital_pin == 5) || ((temp_digital_pin >= 6) && (temp_digital_pin <= 11))))
+	if(!((temp_digital_pin == 0) || (temp_digital_pin == 2) || (temp_digital_pin == 15) || (temp_digital_pin == 3) || (temp_digital_pin == 1) || (temp_digital_pin == 9) || (temp_digital_pin == 10)))
 	{	
 		if(temp_command.compareTo("digital-read") == 0)
 		{
